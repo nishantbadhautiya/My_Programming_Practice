@@ -1,0 +1,23 @@
+00:00 Intro To Course
+03:00 What is Jenkins?
+06:39 What is CI/CD?
+09:47 Lab Setup
+13:02 Installation of Jenkins
+27:11 Jenkins Dashboard Overview
+31:34 Jenkins First Job
+40:14 Run Bash Script with Job
+42:37 Job with Parameters
+47:17 Scheduling Jobs
+52:35 Working with GITHUB
+01:05:20 Auto GITHUB Repo Polling
+01:13:19 Email Notification from Jenkins
+01:25:03 Working with REMOTE Server
+01:46:50 Ansible Playbook with Job
+02:01:55 Project - Website Update on Remote Server
+02:19:51 User Management
+02:26:53 Environment Variables
+02:31:30 Maven with Jenkins Job for Java Application
+02:48:53 Test Result Graph with JUnit
+02:51:34 Archive Artifacts
+02:55:08 Jenkins PIPELINE
+03:12:54 Project - CI/CD Pipeline for Java Application

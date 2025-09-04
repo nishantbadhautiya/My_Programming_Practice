@@ -1,0 +1,16 @@
+mlflow ui	Starts the MLflow UI on localhost:5000.
+mlflow ui --port 8080	Runs MLflow UI on a different port.
+mlflow ui --backend-store-uri file:/path/to/logs	Saves logs to a custom directory.
+python script.py	Runs an MLflow experiment locally.
+mlflow server --backend-store-uri sqlite:///mlflow.db	Runs MLflow with a local database for tracking.
+
+
+
+
+mlflow experiments list   ---------->  To view all experiments
+
+mlflow gc --backend-store-uri ./mlruns --run-id <RUN_ID>    ------------> Find the run_id from the MLflow UI, then delete the run 
+
+mlflow experiments delete --experiment-id <EXPERIMENT_ID>  ---------------> Deleting an Entire Experiment
+
+mlflow server --default-artifact-root s3://my-bucket/    -------------> Logging to Custom backend like aws s3 

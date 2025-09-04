@@ -1,0 +1,106 @@
+docker run -d --rm -p 3000:3000 c5306168d2a1  # --rm automatically remove and delete if my container stops 
+
+
+docker container prune # If you want to remove all stopped containers
+
+
+docker run python:latest   # nothing will happen 
+
+
+docker run -p 8080:80 nginx:latest 
+
+
+docker run -it --name 'python_1' python_image bash # opens a interactive terminal for docker image // Run the container interactively to verify the file structure
+docker run python_image # can not take input 
+docker run -it python_image # work with interective terminal to take input 
+
+
+docker login -u amankumar536894
+docker push amankumar536894/python-app:01
+docker tag <image-id> <dockerhub-username>/<repository-name>:<tag>
+docker pull <dockerhub-username>/<repository-name>:<tag>
+
+
+docker save -o myimage.tar <image-id>  # Export your Docker image as a .tar file
+docker load -i myimage.tar  # Re-import the image later
+
+
+******************************     DOCKER VOLUMES      *******************************************
+
+
+
+docker run -it --rm -v myvolume:/myapp python_volume  # volume name is myvolume and location of the files content is /myapp 
+
+docker volume --help
+docker volume ls
+docker volume inspect myvolume
+docker volume rm myvolume
+
+
+************************************ BIND MOUNTS / VOLUME MOUNT *************************************
+
+docker rmi $(docker images -q) --force
+        docker images -q: Lists the IDs of all images.
+        docker rmi: Removes the images by ID.
+        --force: Forces the removal, including any images in use by stopped containers.
+
+docker volume prune  # delete all unused volumes (volumes not associated with any container)
+
+
+docker run -v /home/amankumar536894/docker_tutorial/servers.txt:/myapp/servers.txt --rm python_docker 
+
+
+
+
+*********************  Communication between different containers *********************
+docker logs <CONTAINER_NAME> 
+docker run -d --env MYSQL_ROOT_PASSWORD="root" --env MYSQL_DATABASE="userinfo" --name "mysqldb" mysql
+docker inspect mysqldb # can be used to get the ip address of mysqldb container 
+docker stop <CONTAINER_NAME> 
+docker start <CONTAINER_NAME> 
+
+
+
+*************************  DOCKER NETWORK ***********************************
+docker network --help
+docker network create my_network
+docker network ls
+docker run -d --env MYSQL_ROOT_PASSWORD="root" --env MYSQL_DATABASE="userinfo" --name mysqldb --network my_network mysql
+docker run -it --rm --name sql_container --network my_network dd9d66cb3c1a
+
+
+simply in three command: 
+docker build -t network_tut_img . 
+docker run --name some-mysql --rm --network my_network -e MYSQL_ROOT_PASSWORD=root -d mysql:latest
+docker run --rm --name "pythonScriptContainer" --network my_network -it network_tut_img:latest bash
+
+
+
+********************** DOCKER COMPOSE **********************************
+
+configuration file based on yaml cd    t    to manage multiple containers running on same machine 
+
+docker-compose up 
+docker-compose down 
+docker-compose up -d # detech mode 
+
+
+docker-compose run -d mysqldb
+docker-compose run mypythonapp
+
+
+
+Run the application stack with:
+        docker-compose up -d  # run in same directory where dockerfile is present 
+Access the MySQL container:
+        docker exec -it mysqldb mysql -u root -p
+Access the Python app container:
+        docker exec -it mypyapp bash
+Verify the health of services with:
+        docker inspect mysqldb
+View logs for debugging:
+        docker-compose logs
+Restarting Services
+        docker-compose restart
+Scale the number of container instances: 
+        docker-compose up --scale web=3  # Scaling Services

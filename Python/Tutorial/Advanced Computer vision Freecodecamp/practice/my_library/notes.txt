@@ -1,0 +1,26 @@
+.
+├── __init__.py
+├── module1.py
+├── module2.py
+├── notes.txt
+├── sub_package1
+│   ├── __init__.py
+│   ├── sub_module1.py # have add function that was imported by sub_sub_module2 module 
+│   └── sub_module2.py
+├── sub_package2
+│   ├── __init__.py
+│   └── sub_module3.py
+├── sub_package3
+│   ├── __init__.py
+│   ├── sub_module4.py
+│   ├── sub_sub_package1
+│   │   ├── __init__.py
+│   │   └── sub_sub_module1.py
+│   └── sub_sub_package2
+│       ├── __init__.py
+│       └── sub_sub_module2.py  # i have to be run the content of this module 
+
+
+
+******************************
+use of __init__.py file in packages 

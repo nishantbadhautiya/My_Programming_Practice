@@ -1,0 +1,13 @@
+FROM python:3.10
+
+COPY . /app
+
+WORKDIR /app
+
+RUN pip install -r requirements.txt
+
+RUN pip install opencv-python 
+
+RUN pip install mediapipe
+
+CMD ["python3", "module2.py"]    
